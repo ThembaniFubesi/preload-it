@@ -17,7 +17,11 @@ export default function preloadOne(url, done) {
 		const type = event.target.response.type
 		const responseURL = event.target.responseURL
 
-		item.fileName = responseURL.substring(responseURL.lastIndexOf('/') + 1)
+		try {
+	       		item.fileName = responseURL.substring(responseURL.lastIndexOf('/') + 1);
+	      	} catch(e) {
+		  	console.log(e);
+	      	}
 		item.type = type
 		item.status = xhr.status
 
